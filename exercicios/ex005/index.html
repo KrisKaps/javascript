@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com dom</title>
+    <style>
+        body {
+            background: rgb(68, 125, 199);
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg" name="msgg">Cliqe em mim</div><br>
+
+    <script>
+
+        var corpo = window.document.body
+        
+        //corpo.style.background = 'black'
+        
+
+        var p1 = window.document.getElementsByTagName('p')[1]
+        
+        window.document.write(p1.innerText +' (.innerText)<br>')
+        window.document.write('Está escrito assim: ' + p1.innerText +' (.innerText)<br><br>')
+        //p1.style.color = 'blue'
+        document.write(p1.innerHTML +' (.innerHTML)<br>') //puxa o codigo html junto
+        document.write(p1.innerText +' (.innerText)<br>') //puxa apenas o texto
+
+
+        window.document.write('Olá mundo!<br>')
+        window.document.write(window.document.charset + ' (charset)<br>')
+        window.document.write(window.navigator.appName + ' (appName)<br>')
+        window.document.write(window.document.URL +' (URL)<br><br>')
+        
+    
+        var d1 = window.document.getElementById('msg')
+
+        d1.style.background = 'green'
+        d.innerText = 'ID!'
+        window.document.getElementById('msg').innerText = 'Olá!'
+
+
+        var d2 = window.document.getElementsByName('msgg')[0]
+        d2.innerText = 'Name!'
+        /*
+        var d3 = window.document.getElementsByClassName('msggg')[0]
+        d3.innerText = 'Class!'
+        */
+        var d4 = window.document.querySelector('div#msg')
+        d4.style.color = 'blue'
+
+
+    </script>
+</body>
+</html>
