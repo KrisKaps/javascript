@@ -1,5 +1,6 @@
 body {
-    background-color: rgb(70, 142, 236);
+    /*background-color: rgb(70, 142, 236);*/
+    display: none;
     font: normal 15pt Arial;
 }
 
@@ -15,6 +16,23 @@ section {
     width: 500px;
     margin: auto;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.350);
+}
+
+article {
+    text-align: center;
+    padding: 10px;
+}
+
+#quadro-foto {
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+img {
+    object-fit: cover;
 }
 
 footer {
