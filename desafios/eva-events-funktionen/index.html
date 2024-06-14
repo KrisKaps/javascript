@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="intro()">
+    <!-- https://de.serlo.org/informatik/206893/aufgaben-zu-javascript -->
+
+    <button onclick="setName()">Wie heißt du?</button>
+    <button ondblclick="welcome()">Willkommen</button>
+
+
+    <script>
+        let name;
+
+        function intro() {
+            alert('Damit du richtig Begrüßt wirst musst du zuerst mit einem Klick angeben wie du heißt. Danach kannst du dich mit einem Doppelklick persönlich begrüßen lassen.');
+        }
+
+        function setName() {
+            name = prompt('Bitte gib deinen Namen ein.');
+        }
+
+        function welcome() {
+            alert('Hallo ' + name + '!');
+        }
+    </script>
+</body>
+</html>
