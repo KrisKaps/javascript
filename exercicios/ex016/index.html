@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelo de Exercício</title>
+    <title>Super counter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Let's count up</h1>
     </header>
     <section>
-        <div>Testando</div>
-        <div>Olá!</div>
+        <p>Start: <input type="number" name="start" id="istart"></p>
+        <p>End: <input type="number" name="end" id="iend"></p>
+        <p>Step: <input type="number" name="step" id="istep"></p>
+        <button onclick="count()">Count</button>
+        <p id="counter">Preparing the count...</p>
     </section>
     <footer>
         <p>&copy; CursoemVideo</p>
