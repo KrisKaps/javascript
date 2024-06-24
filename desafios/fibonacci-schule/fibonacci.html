@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci-Folge</title>
+</head>
+
+<body> </body>
+
+<script>
+
+    let zahl = parseInt(prompt('Eine Zahl eingeben.'));
+
+    while (isNaN(zahl) || zahl < 2) {
+        zahl = parseInt(prompt('Ungültige Angabe! Die Eingabe muss eine positive, ganze Zahl, größer als 1 sein.'));
+    }
+
+    let fib0 = 0;
+    let fib1 = 1;
+    let newFibo = fib0 + fib1;
+    let fibonacciFolge = fib0.toString() + ', ' + fib1.toString();
+
+    while (newFibo <= zahl) {
+        fibonacciFolge += ', ' + newFibo.toString();
+        fib0 = fib1;
+        fib1 = newFibo;
+        newFibo = fib1 + fib0;
+    }
+
+    alert('Das sind alle Zahlen der Fibonacci-Folge bis inklusive der Zahl ' + zahl + ':\n\n' + fibonacciFolge + '.');
+
+    fib0 = 0;
+    fib1 = 1;
+    fibonacciFolge = fib0.toString() + ', ' + fib1.toString();
+
+    for (let i = 3; i <= zahl; i++) {
+        newFibo = fib1 + fib0;
+        fibonacciFolge += ', ' + newFibo.toString();
+        fib0 = fib1;
+        fib1 = newFibo;
+    }
+
+    alert('Das sind die ' + zahl + ' ersten Zahlen der Fibonacci-Folge' + ':\n\n' + fibonacciFolge + '.');
+
+</script>
+
+</html>

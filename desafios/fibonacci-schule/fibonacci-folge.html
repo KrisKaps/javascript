@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci-Folge</title>
+</head>
+
+<body> </body>
+
+<script>
+    
+/*
+    ---------------
+    Fibonacci-Folge
+    ---------------
+
+    Dieser Code berechnet die Fibonacci-Folge in 2 Weisen und ist in 3 Blöcke getrennt.
+    
+    Block 1: Abfrage einer Zahl, Absicherung dieser Eingabe und die Ersten Zahlen der Fibonacci-Folge.
+    Block 2: Berechnung und Ausgabe der Fibonacci-Folge mit der while-Schleife
+    Block 3: Berechnung und Ausgabe der Fibonacci-Folge mit der for-Schleife.
+
+    Mit der while-Schleife werden alle Fibonacci Zahlen bis zu einer Bestimmten Zahl berechnet.
+    Mit der for-Schleife werden eine bestimmte Anzahl an Fibonacci Zahlen berechnet.
+
+    Alles weitere ist in dem Code kommentiert.
+
+    Viel Spaß beim lernen :)
+*/
+
+
+
+
+
+//  ----------------------------------------------------------------------------------------------------------------------------
+
+    // Block 1:
+
+    // Abfrage einer Zahl, Absicherung dieser Eingabe und die Ersten Zahlen der Fibonacci-Folge.
+
+
+    // In der nächsten Zeile Code passieren 4 Sachen:
+    // (1)Deklaration               (2)Initialization
+    // (3)Umwandlung auf Integer    (4)Eingabeaufforderung:
+
+    let zahl = parseInt(prompt('Eine Zahl eingeben.'));
+
+    /* Erklärung zu jeden Part dieser Zeile Code:
+
+    Dadurch dass hier unterschiedlichen Sachen passieren, ist es möglich alle Befehle, die in dieser Zeile ausgeführt werden
+    in unterschiedlichen Zeilen untereinander zu schreiben:
+
+    let zahl;                               (1)
+    zahl = prompt('Eine Zahl eingeben.');   (2)(4)
+    zahl = parseInt(zahl);                  (3)
+
+
+    Angefangen mit der (1)Deklaration der Variable, die den Input des Users speichern wird:
+    Schlüsselword bei der Deklaration neuer Variablen ist 'let'.
+    
+        let zahl;
+
+    wenn man jetzt console.log(zahl) laufen lässt, kommt 'undefined' raus, da die Variable noch nicht initialisiert wurde.
+
+
+
+    Dann folgt die (4)Eingabeaufforderung durch den Befehl prompt(), und die (2)Initialization der Variable 'zahl':
+    
+        zahl = prompt('Eine Zahl eingeben.');
+    
+    also die prompt()-Methode zeigt ein Dialogfeld (welches man selbst definieren kann) an,
+    das den User zur (4)Eingabe auffordert und die Eingabe des User als String zurück gibt,
+    das wird dann in der Variable 'zahl' (2)gespeichert.
+    Was rechts vom '=' ist "wird in der Variable 'zahl' Gespeichert".
+
+    Wenn man jetzt die Funktion typeof(zahl) in der Console eingibt, kommt 'string' raus.
+
+    Da wir aber den Wert, der in der Variable 'zahl' gespeichert ist auch als eine Zahl im Programm brauchen,
+    müssen wir die Variabel umwandeln. Das machen wir mit der parseInt()-Methode. Und überschreiben die Variable:
+
+        zahl = parseInt(zahl)
+
+    Die parseInt()-Methode analysiert einen Wert als Zeichenfolge (String) und gibt die erste Ganzzahl zurück.
+    Wenn man jetzt typeof(zahl) in der Console eingibt, kommt 'number' raus.
+
+    Somit haben wir, den User zur Eingabe aufgefordert, haben um diese Eingabe zu speichern eine Variable deklariert
+    und mit der umgewandelte Eingabe initialisiert - die Eingabe in die Variabel gespeichert.
+
+    */
+
+
+    // Der folgende Codeabschnitt ist eine Sicherheitsabfrage zur Eingabe des Users:
+    // Solange der User was eingibt was keine Zahl oder (||) eine Zahl,
+    // die kleiner als 2 ist, wird er auf eine neue Eingabe aufgefordert.
+
+    while (isNaN(zahl) || zahl < 2) {
+        zahl = parseInt(prompt('Ungültige Angabe! Die Eingabe muss eine positive, ganze Zahl, größer als 1 sein.'));
+    }
+
+    // Hier sieht man, dass vor der Variablenbezeichnung das Schlüsselword 'let' nicht verwendet worden ist,
+    // das kommt daher, dass diese Variable schon deklariert worden ist und 'let' wird nur für neue Deklarationen verwendet.
+
+
+    // In den nächste 4 Zeilen Code passieren jeweils 2 Sachen (1) (2):
+    // Variablen mit der Bezeichnung 'fib0', 'fib1', 'newFibo' und
+    // 'fibonacciFolge' werden (1)deklariert und mit den jeweiligen Werten (2)initialisiert.
+
+    let fib0 = 0;   // 0 ist die erste Zahl der Folge und musst deklariert und initialisiert werden.
+    let fib1 = 1;   // 1 ist die zweite Zahl der Folge und musst deklariert und initialisiert werden.
+
+    // fib0 und fib1 sind beide vom Typ Number, da sie mit einer Zahl initialisiert wurden.
+    // let fib0 = '0'; wäre eine String Initialization.
+
+    // Eine Variable für die dritte/nächste Zahl der Folge muss (1)deklariert werden.
+    // Diese wird auch direkt mit der Summe der 1ten und 2ten Zahlen der Folge (2)initialisiert.
+    let newFibo = fib0 + fib1;
+
+    // hier ist das '+' als Summe zu interpretieren, da fib0 und fib1 vom Typ 'number' sind.
+    // Bsp.: 3 + 4 = 7
+    // dementsprechend ist 'newFibo' auch vom Typ 'number'.
+
+
+    // Eine Variable für die Ausgabe wird mit der Bezeichnung 'fibonacciFolge' (1)deklariert.
+    // 'fibonacciFolge' soll vom Typ String sein, da aber fib0 und fib1 vom Typ Number
+    // sind, müssen diese zu Strings konvertiert werden, was mit der Funktion .toString() passiert.
+    // 'fibonacciFolge' wird mit den ersten beiden Zahlen der Folge (2)initialisiert.
+    let fibonacciFolge = fib0.toString() + ', ' + fib1.toString();
+
+    // hier ist das '+' als Verbindungsoperator zu interpretieren, da die .toString()-Funktion den
+    // Typ von 'fib0' und 'fib1' zu String ändert. Wenn man String mit String (aber auch 'number')
+    // "summiert", werden diese konkateniert, sobald ein String dabei ist wird alles als String wargenomen:
+    // 'hallo' + 'welt' -> 'hallowelt'; '3' + 4 + 5 -> 345;
+    // Hier ist auf das Setzen von Leerzeichen zu achten:
+    // 'Hallo ' + 7 + 'Welt' -> 'Hallo 7Welt';
+
+
+
+
+
+//  ----------------------------------------------------------------------------------------------------------------------------
+    
+    // Block 2:
+
+    // Die while-Schleife:
+    // Ergänzung der Fibonacci-Folge mit der Berechnung der nächsten Fibonacci-Zahl.
+    // Sowie Ausgabe aller Zahlen der Fibonacci-Folge, die kleiner oder gleich der eingegebene 'zahl' sind.
+    // Am Ende der Schleife wird die Folge ausgegeben.
+
+
+    // Hier werden alle folgende Zahlen der Fibonacci-Folge 'newFibo'
+    // der Ausgabe fibonacciFolge hinzugefügt und berechnet solange
+    // die neuste berechnete Fibonacci Zahl 'newFibo' kleiner
+    // oder gleich als die vom User eingegebene 'zahl' ist.
+
+    // Die 3te Zahl der Folge wurde ja bei der Initialization der 'newFibo' Variable berechnet
+    // Diesen Wert wird jetzt bei der Bedingungsabfrage verwendet. Und wenn und solange die 
+    // Bedingung erfüllt ist, wird alles was zwischen den { } ist wiederholt.
+
+    while (newFibo <= zahl) {
+        // Sobald diese Bedingung (newFibo <= zahl) nicht mehr erfüllt ist,
+        // wird die Schleife beendet und der Code geht nach der } weiter.
+
+        // wenn 'newFibo' kleiner als 'zahl' ist (while-Abfrage war 'true'),
+        // wird 'newFibo' zur Ausgabe 'fibonacciFolge' hinzugefügt.
+        fibonacciFolge += ', ' + newFibo.toString();
+
+        // newFibo ist vom Typ 'number', muss deswegen .toString() konvertiert werden.
+        // Eine andere Schreibweise für diese Zeile wäre:
+        //      fibonacciFolge = fibonacciFolge + ', ' + newFibo.toString();
+
+        // Die Ausgangszahlen werden neu gesetzt.
+        fib0 = fib1;
+        fib1 = newFibo;
+
+        // Die nächste Zahl der Folge wird mit den neu gesetzten Ausgangszahlen berechnet.
+        newFibo = fib1 + fib0;
+
+        // Da das auch am Ende der schleife passiert, wird diese neue Zahl
+        // direkt bei der Bedingungsabfrage der while-Schleife verwendet.
+    }
+
+    // Mit der Popup-Box-Art alert(), eine Benachrichtigungsbox, wird die Ausgabe-Variable 'fibonacciFolge' ausgegeben.
+    alert('Das sind alle Zahlen der Fibonacci-Folge bis inklusive der Zahl ' + zahl + ':\n\n' + fibonacciFolge + '.');
+    // \n ist ein Zeilenumbruch, rein stilistisch.
+
+
+
+
+
+//  ----------------------------------------------------------------------------------------------------------------------------
+    
+    // Variablen müssen für den nächsten Block zurückgesetzt werden:
+    fib0 = 0;
+    fib1 = 1;
+    fibonacciFolge = fib0.toString() + ', ' + fib1.toString();
+    // was auch immer vorher in diesen Variablen gespeichert war, wurde eben überschrieben.
+    
+    
+
+    // Block 3:
+
+    // Die for-Schleife:
+    // Ergänzung der Fibonacci-Folge mit der Berechnung der nächsten Fibonacci-Zahl.
+    // Sowie Ausgabe der Fibonacci-Folge, mit so vielen Zahlen wir der User bei 'zahl' eingegeben hat.
+    // Am Ende der Schleife wird die Folge ausgegeben.
+
+    // Hier werden alle folgende Zahlen der Fibonacci-Folge 'newFibo'
+    // der Ausgabe fibonacciFolge berechnet und hinzugefügt solange
+    // wie der deklariert und initialisiert einen Zähler in der for-Schleife
+    // die Bedingung, die auch in der for-Schleife ist erfüllt. 
+
+    // Die for-Schleife deklariert und initialisiert einen Zähler 'i', der in einzeln Schritte hoch zählt (i++)
+    // also werden alle Befehle die zwischen den { } sind so oft wiederholt
+    // bis inclusive 'i' gleich der eingegebene zahl ist - solange 'i' kleiner gleich der eingegebene zahl ist.
+    
+    for (let i = 3 ; i <= zahl; i++) {
+        // hier wird 'i' mit 3 initialisiert, das kommt daher, dass die ersten 2 Zahlen der Folge (0, 1) schon vor
+        // der for-Schleife der Ausgabe 'fibonacciFolge' hinzugefügt wurden und die Schleife deswegen ab der 3ten
+        // Zahl weiter machen soll.
+
+        // 'newFibo', die nächste Zahl der Folge, wird berechnet:
+        newFibo = fib1 + fib0;
+
+        // 'newFibo' wird zur Ausgabe hinzugefügt:
+        fibonacciFolge += ', ' + newFibo.toString();
+
+        // die Ausgangszahlen werden neu gesetzt:
+        fib0 = fib1;
+        fib1 = newFibo;
+    }
+
+    // Mit der Popup-Box-Art alert(), eine Benachrichtigungsbox, wird die Ausgabe-Variable 'fibonacciFolge' ausgegeben.
+    alert('Das sind die ' + zahl + ' ersten Zahlen der Fibonacci-Folge' + ':\n\n' + fibonacciFolge + '.');
+    // '\n' ist ein Zeilenumbruch, rein stilistisch.
+</script>
+
+</html>
