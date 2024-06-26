@@ -10,31 +10,31 @@
 <body> </body>
 
 <script>
+
+    /*
+        ---------------
+        Fibonacci-Folge
+        ---------------
     
-/*
-    ---------------
-    Fibonacci-Folge
-    ---------------
-
-    Dieser Code berechnet die Fibonacci-Folge in 2 Weisen und ist in 3 Blöcke getrennt.
+        Dieser Code berechnet die Fibonacci-Folge in 2 Weisen und ist in 3 Blöcke getrennt.
+        
+        Block 1: Abfrage einer Zahl, Absicherung dieser Eingabe und die Ersten Zahlen der Fibonacci-Folge.
+        Block 2: Berechnung der Fibonacci-Folge mit der while-Schleife und die Ausgabe.
+        Block 3: Berechnung der Fibonacci-Folge mit der for-Schleife und die Ausgabe.
     
-    Block 1: Abfrage einer Zahl, Absicherung dieser Eingabe und die Ersten Zahlen der Fibonacci-Folge.
-    Block 2: Berechnung und Ausgabe der Fibonacci-Folge mit der while-Schleife
-    Block 3: Berechnung und Ausgabe der Fibonacci-Folge mit der for-Schleife.
-
-    Mit der while-Schleife werden alle Fibonacci Zahlen bis zu einer Bestimmten Zahl berechnet.
-    Mit der for-Schleife werden eine bestimmte Anzahl an Fibonacci Zahlen berechnet.
-
-    Alles weitere ist in dem Code kommentiert.
-
-    Viel Spaß beim lernen :)
-*/
+        Mit der while-Schleife werden alle Fibonacci Zahlen bis zu der eingegebene Zahl berechnet.
+        Mit der for-Schleife werden so viele Zahlen der Fibonacci-Folge berechnet wie die eingegebene Zahl.
+    
+        Alles weitere ist in dem Code kommentiert.
+    
+        Viel Spaß beim lernen :)
+    */
 
 
 
 
 
-//  ----------------------------------------------------------------------------------------------------------------------------
+    //  ----------------------------------------------------------------------------------------------------------------------------
 
     // Block 1:
 
@@ -42,8 +42,8 @@
 
 
     // In der nächsten Zeile Code passieren 4 Sachen:
-    // (1)Deklaration               (2)Initialization
-    // (3)Umwandlung auf Integer    (4)Eingabeaufforderung:
+    // (1)Deklaration                       (2)Initialization
+    // (3)Umwandlung auf Integer-Number     (4)Eingabeaufforderung:
 
     let zahl = parseInt(prompt('Eine Zahl eingeben.'));
 
@@ -70,7 +70,7 @@
     
         zahl = prompt('Eine Zahl eingeben.');
     
-    also die prompt()-Methode zeigt ein Dialogfeld (welches man selbst definieren kann) an,
+    Die prompt()-Methode zeigt ein Dialogfeld (Text kann man selbst definieren) an,
     das den User zur (4)Eingabe auffordert und die Eingabe des User als String zurück gibt,
     das wird dann in der Variable 'zahl' (2)gespeichert.
     Was rechts vom '=' ist "wird in der Variable 'zahl' Gespeichert".
@@ -80,10 +80,12 @@
     Da wir aber den Wert, der in der Variable 'zahl' gespeichert ist auch als eine Zahl im Programm brauchen,
     müssen wir die Variabel umwandeln. Das machen wir mit der parseInt()-Methode. Und überschreiben die Variable:
 
-        zahl = parseInt(zahl)
+        zahl = parseInt(zahl);
 
-    Die parseInt()-Methode analysiert einen Wert als Zeichenfolge (String) und gibt die erste Ganzzahl zurück.
-    Wenn man jetzt typeof(zahl) in der Console eingibt, kommt 'number' raus.
+    Die parseInt()-Methode analysiert einen Wert als Zeichenfolge (String) und gibt die erste Ganzzahl zurück. Wenn der User was
+    eingibt, was nicht zu einer Zahl umgewandelt werden kann, gibt die parseInt()-Methode den Wert 'NaN' (Not a Number) zurück.
+    Beim eingeben von typeof(zahl) in der Console, kommt 'number' raus.
+
 
     Somit haben wir, den User zur Eingabe aufgefordert, haben um diese Eingabe zu speichern eine Variable deklariert
     und mit der umgewandelte Eingabe initialisiert - die Eingabe in die Variabel gespeichert.
@@ -95,15 +97,15 @@
     // Solange der User was eingibt was keine Zahl oder (||) eine Zahl,
     // die kleiner als 2 ist, wird er auf eine neue Eingabe aufgefordert.
 
-    while (isNaN(zahl) || zahl < 2) {
+    while (isNaN(zahl) || zahl < 1) {
         zahl = parseInt(prompt('Ungültige Angabe! Die Eingabe muss eine positive, ganze Zahl, größer als 1 sein.'));
     }
 
-    // Hier sieht man, dass vor der Variablenbezeichnung das Schlüsselword 'let' nicht verwendet worden ist,
-    // das kommt daher, dass diese Variable schon deklariert worden ist und 'let' wird nur für neue Deklarationen verwendet.
+    // Hier sieht man, dass vor der Variablenbezeichnung 'zahl' das Schlüsselword 'let' nicht verwendet worden ist,
+    // das kommt daher, dass diese Variable schon deklariert worden ist und 'let' nur für neue Deklarationen verwendet wird.
 
 
-    // In den nächste 4 Zeilen Code passieren jeweils 2 Sachen (1) (2):
+    // In den nächste 4 Zeilen Code passieren jeweils 2 Sachen:
     // Variablen mit der Bezeichnung 'fib0', 'fib1', 'newFibo' und
     // 'fibonacciFolge' werden (1)deklariert und mit den jeweiligen Werten (2)initialisiert.
 
@@ -124,13 +126,13 @@
 
     // Eine Variable für die Ausgabe wird mit der Bezeichnung 'fibonacciFolge' (1)deklariert.
     // 'fibonacciFolge' soll vom Typ String sein, da aber fib0 und fib1 vom Typ Number
-    // sind, müssen diese zu Strings konvertiert werden, was mit der Funktion .toString() passiert.
+    // sind, solten diese zu Strings konvertiert werden, was mit der Funktion .toString() passiert.
     // 'fibonacciFolge' wird mit den ersten beiden Zahlen der Folge (2)initialisiert.
     let fibonacciFolge = fib0.toString() + ', ' + fib1.toString();
 
-    // hier ist das '+' als Verbindungsoperator zu interpretieren, da die .toString()-Funktion den
+    // hier ist das '+' als Verkettungsoperator zu interpretieren, da die .toString()-Funktion den
     // Typ von 'fib0' und 'fib1' zu String ändert. Wenn man String mit String (aber auch 'number')
-    // "summiert", werden diese konkateniert, sobald ein String dabei ist wird alles als String wargenomen:
+    // "summiert", werden diese konkateniert. Sobald ein String dabei ist wird alles als String wargenomen:
     // 'hallo' + 'welt' -> 'hallowelt'; '3' + 4 + 5 -> 345;
     // Hier ist auf das Setzen von Leerzeichen zu achten:
     // 'Hallo ' + 7 + 'Welt' -> 'Hallo 7Welt';
@@ -139,18 +141,18 @@
 
 
 
-//  ----------------------------------------------------------------------------------------------------------------------------
-    
+    //  ----------------------------------------------------------------------------------------------------------------------------
+
     // Block 2:
 
     // Die while-Schleife:
     // Ergänzung der Fibonacci-Folge mit der Berechnung der nächsten Fibonacci-Zahl.
-    // Sowie Ausgabe aller Zahlen der Fibonacci-Folge, die kleiner oder gleich der eingegebene 'zahl' sind.
+    // Sowie die Ausgabe aller Zahlen der Fibonacci-Folge, die kleiner oder gleich der eingegebene 'zahl' sind.
     // Am Ende der Schleife wird die Folge ausgegeben.
 
 
     // Hier werden alle folgende Zahlen der Fibonacci-Folge 'newFibo'
-    // der Ausgabe fibonacciFolge hinzugefügt und berechnet solange
+    // der Ausgabe 'fibonacciFolge' hinzugefügt und berechnet solange
     // die neuste berechnete Fibonacci Zahl 'newFibo' kleiner
     // oder gleich als die vom User eingegebene 'zahl' ist.
 
@@ -189,15 +191,15 @@
 
 
 
-//  ----------------------------------------------------------------------------------------------------------------------------
-    
+    //  ----------------------------------------------------------------------------------------------------------------------------
+
     // Variablen müssen für den nächsten Block zurückgesetzt werden:
     fib0 = 0;
     fib1 = 1;
     fibonacciFolge = fib0.toString() + ', ' + fib1.toString();
     // was auch immer vorher in diesen Variablen gespeichert war, wurde eben überschrieben.
-    
-    
+
+
 
     // Block 3:
 
@@ -214,11 +216,11 @@
     // Die for-Schleife deklariert und initialisiert einen Zähler 'i', der in einzeln Schritte hoch zählt (i++)
     // also werden alle Befehle die zwischen den { } sind so oft wiederholt
     // bis inclusive 'i' gleich der eingegebene zahl ist - solange 'i' kleiner gleich der eingegebene zahl ist.
-    
-    for (let i = 3 ; i <= zahl; i++) {
+
+    for (let i = 3; i <= zahl; i++) {
         // hier wird 'i' mit 3 initialisiert, das kommt daher, dass die ersten 2 Zahlen der Folge (0, 1) schon vor
-        // der for-Schleife der Ausgabe 'fibonacciFolge' hinzugefügt wurden und die Schleife deswegen ab der 3ten
-        // Zahl weiter machen soll.
+        // der for-Schleife der Ausgabe 'fibonacciFolge' hinzugefügt wurden und die Schleife deswegen ab der 3ten Zahl
+        // weiter machen soll. Dementsprechend wird die for-Schleife nur ausgeführt, wenn der User 3 oder mehr eingibt.
 
         // 'newFibo', die nächste Zahl der Folge, wird berechnet:
         newFibo = fib1 + fib0;
