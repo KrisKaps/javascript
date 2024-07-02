@@ -1,13 +1,13 @@
 function count() {
-  console.log("clicked count");
+  console.log("count was clicked");
 
   let start = document.getElementById("istart").value;
   let end = document.getElementById("iend").value;
   let step = document.getElementById("istep").value;
 
-  console.log("Start: " + start);
-  console.log("End: " + end);
-  console.log("Step: " + step);
+  console.log("Start: " + start + ' - ' + typeof(start));
+  console.log("End: " + end + ' - ' + typeof(end));
+  console.log("Step: " + step + ' - ' + typeof(step));
 
   let counter = "";
 
