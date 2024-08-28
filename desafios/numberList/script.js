@@ -5,7 +5,6 @@ let finishtxt = document.getElementById('ifinish')
 
 function addNumber() {
     let n = document.getElementById('inum').value
-    console.log(n)
     let numberlist = document.getElementById('inumber-list')
     let num = parseInt(n)
 
@@ -26,9 +25,21 @@ function addNumber() {
 
 }
 
+function sum(arr){
+    let sum = 0
+    for (let pos in arr){
+        sum += arr[pos]
+    }
+    return sum
+}
+
 
 function finish() {
-    
+
+    if (numbers.length == 0) {
+        alert('There are no numbers, please add some numbers before finish.')
+    } else {
+
     // timestable.innerHTML = '' // clear previous table before generating new one
     finishtxt.innerHTML = ''
 
@@ -38,11 +49,10 @@ function finish() {
     
     finishtxt.innerHTML += `The biggest added number is ${numbers[numbers.length-1]}.<br><br>`
     
-    finishtxt.innerHTML += `The biggest added number is ${numbers[0]}.<br><br>`
+    finishtxt.innerHTML += `The smallest added number is ${numbers[0]}.<br><br>`
     
-    finishtxt.innerHTML += `Somando todos os valores, we have ${numbers[0]}.<br><br>`
+    finishtxt.innerHTML += `Somando todos os valores, we have ${sum(numbers)}.<br><br>`
     
-    
-        
+    finishtxt.innerHTML += `Somando todos os valores, we have ${sum(numbers)/numbers.length}.`}
     
 }
